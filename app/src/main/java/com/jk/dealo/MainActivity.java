@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     String mTitle[] = {"Iphone4s", "Iphone5s", "Iphone6s", "Iphone7s", "Iphone8s"};
     String mDescription[] = {"Iphone4s Description", "Iphone5s Description", "Iphone6s Description", "Iphone7s Description", "Iphone8s Description"};
     ArrayAdapter<String> adapter;//search adapter
-    int mImages[] = {R.drawable.j, R.drawable.j, R.drawable.j, R.drawable.j, R.drawable.j,};
+    int mImages[] = {R.drawable.ip, R.drawable.ip, R.drawable.ip, R.drawable.ip, R.drawable.ip,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
