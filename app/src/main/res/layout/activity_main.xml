@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:queryHint="Search Here"
+        android:iconifiedByDefault="false">
+    </SearchView>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -18,13 +18,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    SearchView searchView;
     ListView listView;
 
-    String mTitle[] = {"Iphone4s", "Iphone5s", "Iphone6s", "Iphone7s", "Iphone8s"};
+
+    String mTitle[] = {"Iphone4s", "Nokkia5s", "mobile6s", "lg7s", "Iphone8s"};
     String mDescription[] = {"Iphone4s Description", "Iphone5s Description", "Iphone6s Description", "Iphone7s Description", "Iphone8s Description"};
     ArrayAdapter<String> adapter;//search adapter
     int mImages[] = {R.drawable.ip, R.drawable.ip, R.drawable.ip, R.drawable.ip, R.drawable.ip,};
@@ -34,12 +38,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        searchView = findViewById(R.id.searchView);
         listView = findViewById(R.id.listview);
         //search adapter
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mTitle);
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mDescription);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTitle);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mDescription);
         listView.setAdapter(adapter);
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                              @Override
+                                              public boolean onQueryTextSubmit(String s) {
+                                                  return false;
+                                              }
+
+                                              @Override
+                                              public boolean onQueryTextChange(String s) {
+                                                  adapter.getFilter().filter(s);
+                                                  return true;
+                                              }
+        });
         MyAdapter adapter = new MyAdapter( this, mTitle , mDescription , mImages);
         listView.setAdapter(adapter);
 
@@ -111,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-   //search bar view//
+   /*//search bar view//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -121,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         SearchView searchView = (SearchView)menuItem.getActionView();
         searchView.setQueryHint("Type here to search");
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        *//*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public boolean onQueryTextSubmit(String nextText) {
                 return false;
             }
 
@@ -131,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
                 return true;
-            }
-        });
+            }*//*
+       // });
         return super.onCreateOptionsMenu(menu);
     }
-
+*/
 
     class MyAdapter extends ArrayAdapter<String> {
         Context context;
