@@ -32,6 +32,17 @@
         android:gravity="center"
         android:fontFamily="sans-serif-light"
         android:layout_below="@id/titleText"/>
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:bufferType="editable"
+        android:textStyle="bold"
+        android:background="@color/whiteColor"
+        android:text="Buy Now"
+        android:textSize="20dp"/>
 
 
 </RelativeLayout>
